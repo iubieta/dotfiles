@@ -36,6 +36,5 @@ require("lazy").setup({
   auto_update = true,
 })
 
-
-
+vim.api.nvim_set_hl(0, 'LineNr', { fg='orange', bold=true })
 
