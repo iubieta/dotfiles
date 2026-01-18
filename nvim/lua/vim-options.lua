@@ -1,6 +1,8 @@
 -- Mostrar numeros de linea
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 -- Configurar tabs con 4 espacios
 vim.opt.tabstop = 4        -- Número de espacios que representa un tab

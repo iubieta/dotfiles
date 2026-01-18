@@ -6,7 +6,7 @@ return	{
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "auto", -- latte, frappe, macchiato, mocha
+			flavour = "mocha", -- latte, frappe, macchiato, mocha
 			background = { -- :h background
 				light = "latte",
 				dark = "mocha",
@@ -37,8 +37,17 @@ return	{
 				operators = {},
 				-- miscs = {}, -- Uncomment to turn off hard-coded styles
 			},
-			-- color_overrides = {default},
-			-- custom_highlights = {CursorLineNr},
+
+			color_overrides = {
+
+				},
+
+			custom_highlights = {
+				LineNr = { fg = "#6c7086", bg = "NONE" },
+				CursorLineNr = { fg = "#f9e2af", bg = "NONE" },
+				StatusLine = { fg = "NONE", bg = "#11111b" }, -- Línea de estado activa
+				Comment = { fg = "#6c7086", italic = true },
+			},
 			default_integrations = true,
 			integrations = {
 				cmp = true,
@@ -53,20 +62,19 @@ return	{
 			},
 		})
 		-- setup must be called before loading
-		vim.cmd.colorscheme "catppuccin"
+		-- vim.cmd.colorscheme "catppuccin"
 
 		-- Mostrar lineas de division de ventanas
 		vim.o.fillchars = "vert:│,horiz:─,horizup:┴,horizdown:┬,vertleft:┤,vertright:├,verthoriz:┼"
 		vim.cmd("highlight WinSeparator guifg=#6c7086 guibg=NONE")
+
+		-- indent line colors
+		vim.api.nvim_set_hl(0, "IblScope", { fg = "#6c7086" })
+		vim.api.nvim_set_hl(0, "IblIndent", { fg = "#45475a" })
+
+
 		-- Ajusta el color de las líneas (opcional)
-		vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#6c7086", bg = "NONE" })
+		-- vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#6c7086", bg = "NONE" })
 
-		-- Cambiar el color de la línea de estado
-		--vim.api.nvim_set_hl(0, "StatusLine", { fg = "NONE", bg = "#11111b" })  -- Línea de estado activa
-		--vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "#a6a6c6", bg = "#181825" }) -- Línea de estado inactiva
-
-		-- Cambiar color de los números de línea
-		vim.api.nvim_set_hl(0, "LineNr", { fg = "#6c7086", bg = "NONE" })
-		vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#fab387", bg = "NONE" })
 	end
 }

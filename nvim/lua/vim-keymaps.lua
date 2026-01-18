@@ -12,11 +12,10 @@ vim.api.nvim_set_keymap('n', 'J', '15j<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'K', '15k<CR>', { noremap = true, silent = true })
 
 -- Movimiento en modo insercion con ctrl
-local keys = { 'w', 'b', 'e', '0', '$', 'gg', 'G'}
-for _, key in ipairs(keys) do
-    vim.api.nvim_set_keymap('i', '<C-' .. key .. '>', '<C-o>' .. key, { noremap = true, silent = true })
-end
-vim.api.nvim_set_keymap('i', '<C-d>', '<Del>', { noremap = true, silent = true })
+vim.keymap.set("i", "<C-h>", "<Left>")
+vim.keymap.set("i", "<C-l>", "<Right>")
+vim.keymap.set("i", "<C-j>", "<Down>")
+vim.keymap.set("i", "<C-k>", "<Up>")
 
 -- Deshacer
 vim.api.nvim_set_keymap('i', '<C-z>', '<C-o>u', { noremap = true, silent = true })
@@ -50,12 +49,6 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
-
--- -- Mover ventanas
--- vim.api.nvim_set_keymap('n', '<S-H>', '<C-w>H', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<S-J>', '<C-w>J', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<S-K>', '<C-w>K', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<S-L>', '<C-w>L', { noremap = true, silent = true })
 
 -- Gestion de pestañas
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Abrir nueva pestaña" })

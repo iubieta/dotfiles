@@ -1,0 +1,76 @@
+return {
+	'navarasu/onedark.nvim',
+	priority = 1000;
+	lazy = false,
+	config = function()
+		-- Lua
+		require('onedark').setup  {
+			-- Main options --
+			style = 'cool', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+			transparent = false,  -- Show/hide background
+			transparent_background = false, -- disables setting the background color.
+			term_colors = true, -- Change terminal color as per the selected theme style
+			ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+			show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
+			cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+			-- toggle theme style ---
+			toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+			toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+			-- Change code style ---
+			styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+				comments = { "italic" }, -- Change the style of comments
+				conditionals = { "italic" },
+				loops = {},
+				functions = {},
+				keywords = {},
+				strings = {},
+				variables = {},
+				numbers = {},
+				booleans = {},
+				properties = {},
+				types = {},
+				operators = {},
+				-- miscs = {}, -- Uncomment to turn off hard-coded styles
+			},
+
+			-- Lualine options --
+			lualine = {
+				transparent = false, -- lualine center bar transparency
+			},
+
+			-- Custom Highlights --
+
+			-- Override default colors
+			colors = {
+			},
+
+			-- Override highlight groups
+			highlights = {
+				LineNr = { fg = "#6c7086", bg = "NONE" },
+				CursorLineNr = { fg = "#d19a66", bg = "NONE" },
+				StatusLine = { fg = "NONE", bg = "#11111b" }, -- Línea de estado activa
+				Identifier = { fg = "#ABB2BF", bg = "NON" },
+				-- StatusLineNC = { fg = "#a6a6c6", bg = "#181825" } -- Línea de estado inactiva
+			},
+
+			-- Plugins Config --
+			diagnostics = {
+				darker = true, -- darker colors for diagnostic
+				undercurl = true,   -- use undercurl instead of underline for diagnostics
+				background = true,    -- use background color for virtual text
+			},
+		}
+		-- require('onedark').load()
+
+		-- Mostrar lineas de division de ventanas
+		vim.o.fillchars = "vert:│,horiz:─,horizup:┴,horizdown:┬,vertleft:┤,vertright:├,verthoriz:┼"
+		vim.cmd("highlight WinSeparator guifg=#6c7086 guibg=NONE")
+
+		-- Ajusta el color de las líneas (opcional)
+		vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#6c7086", bg = "NONE" })
+
+
+	end
+}
