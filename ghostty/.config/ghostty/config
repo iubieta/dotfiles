@@ -53,7 +53,7 @@ font-family = "JetBrains Bold"
 font-size = 10
 
 # Cell height and width
-adjust-cell-height = -5%
+adjust-cell-height = 0%
 adjust-cell-width = +5%
 
 # Cursor
