@@ -16,7 +16,12 @@ vim.opt.smartindent = true -- Añade indentado automático en estructuras de có
 vim.opt.scrolloff = 10
 
 -- No recortar lineas
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakat = " "
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "shift:2"
+vim.opt.showbreak ='\\'
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 5
 
